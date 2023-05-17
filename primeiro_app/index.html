@@ -1,0 +1,35 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<main id="app">
+    <h1>Olá Mundo!</h1>
+    <p>Nome: {{ nome }}</p>
+    <p>E-mail: {{ email }}</p>
+    <p>{{ apresentarMensagemComDadosInformados() }}</p>
+    <h2>{{ somar(12.5, 11) }}</h2>
+</main>
+
+<script>
+    // instanciando o objeto da classe Vue
+    new Vue({
+        el: '#app',
+        data: () => { // método que trata todos os estados dos dados presentes na tela
+            
+            return {
+                nome: 'Gabriel Rodrigues dos Santos',
+                email: 'gabriel123@gmail.com'
+            };
+        },
+        methods: {
+            apresentarMensagemComDadosInformados() {
+
+                // para acessar uma propriedade de estado em um método eu devo utilizar "this"
+                return 'Bem vindo ' + this.nome;
+            },
+            somar(primeiroValor, segundoValor) {
+                const soma = parseFloat(primeiroValor) + parseFloat(segundoValor);
+
+                return 'A soma entre ' + primeiroValor + ' e ' + segundoValor + ' é igual a ' + soma;
+            }
+        }
+    });
+</script>
